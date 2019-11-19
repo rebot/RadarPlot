@@ -1,0 +1,4 @@
+pandas==0.25.1
+pylatexenc==2.1
+PyX==0.15
+xlrd==1.2.0
