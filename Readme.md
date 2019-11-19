@@ -14,4 +14,4 @@ This code will generate a `RadarPlot` instance. The plot can be saved using the 
 plot.save('filename')
 ```
 
-(C) Gilles Trenson
+Made with ♥️ by Gilles Trenson
