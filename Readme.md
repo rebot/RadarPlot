@@ -14,4 +14,8 @@ This code will generate a `RadarPlot` instance. The plot can be saved using the 
 plot.save('filename')
 ```
 
+## Common issues
+
+Make sure you have installed `Tex` on your computer. For windows, download [MikTex](https://miktex.org/download) and install for the current User only (Sweco doens't allow you to install it for all users).
+
 Made with ♥️ by Gilles Trenson
