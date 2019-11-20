@@ -71,6 +71,17 @@ class RadarPlot(object):
             self.c.stroke(path.path(path.moveto(0, r[0]), *[path.lineto(r_ * np.cos(a), r_ * np.sin(a)) for r_, a in zip(r[1:], self.t[1:])], path.closepath()), [
                           color.rgbfromhexstring(c), style.linewidth(0.06), deco.filled([color.rgbfromhexstring(c), color.transparency(0.9)])])
 
+    def addLegend(self, prov, woon, kern):
+        # Definieer kleuren
+        colors = ['#9CD5E7', '#E1D2C6', '#03A698']
+        names = ['Provincie', 'Woongebied', 'Kern']
+
+        for i, pre, name, c in zip(range(3), names, [prov, woon, kern], colors):
+            x = - self.s * self.r * 2.5
+            y =  - self.s * (self.r + 3 - (i/2)*2)
+            self.c.stroke(path.path(path.moveto(x,y), path.rlineto(1, 0)), [color.rgbfromhexstring(c), style.linewidth(0.06)])
+            self.c.text(x + 1.1, y, pre.capitalize() + ' ' + name.capitalize(), [text.parbox(4), text.halign.boxleft, text.halign.flushleft, text.valign.middle, color.gray(0.3)])
+
     def save(self, name='test'):
         # Schrijf een PDF file weg
         self.generateRadarPlot()
@@ -95,5 +106,6 @@ for provincie, data in provincies:
             kern_gem = data.mean()
             # Genereer een plot voor elke kern
             plot = RadarPlot(prov_gem, woon_gem, kern_gem)
+            plot.addLegend(provincie.capitalize(), woongebied.capitalize(), kern.capitalize())
             plot.save(provincie.lower() + '_' +
                       woongebied.lower() + '_' + kern.lower())
