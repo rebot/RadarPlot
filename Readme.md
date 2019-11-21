@@ -14,6 +14,23 @@ This code will generate a `RadarPlot` instance. The plot can be saved using the 
 plot.save('filename')
 ```
 
+## Getting started
+
+To get started, I would recommend you to start a new `virtualenv`, preferably by using a tool like `mkvirtualenv <NameOfYourEnv:RadarPlot>`. Next, activate your environment by using `workon <NameOfYourEnv:RadarPlot>`.
+
+Run the following command to install al dependencies:
+
+```shell
+# This will install all dependencies
+pip install -r requirements.txt
+```
+
+Go ahead and run the python script to generate the plots
+
+```shell
+python run.py
+```
+
 ## Common issues
 
 Make sure you have installed `Tex` on your computer. For windows, download [MikTex](https://miktex.org/download) and install for the current User only (Sweco doens't allow you to install it for all users).
