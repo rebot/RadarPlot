@@ -1,5 +1,7 @@
 # RadarPlot
 
+>AANDACHT: Onderstaande handleiding werd opgesteld voor de vorige versie van RadarPlot. De code is aangepast (meer generieker), maar wordt momenteel nog geplaagd door enkele bugs.
+
 A plot build using [PyX](https://pyx-project.org/), a Python package build for creating PostScript, PDF, and SVG files. It works together with the TeX/LaTeX interface to generate text. This package has been used because the Matplotlib, Pyplot or another package wasn't build to allow a great customisation of the plots.
 
 ```python
