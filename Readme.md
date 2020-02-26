@@ -6,14 +6,23 @@ A plot build using [PyX](https://pyx-project.org/), a Python package build for c
 
 ```python
 # In the run.py file a new class is defined
-plot = RadarPlot(provincie, woongebied, kern)
+plot = RadarPlot()
 ```
 
-This code will generate a `RadarPlot` instance. The plot can be saved using the following code:
+This code will generate a `RadarPlot` instance. You can define the amount of gridlines by defining `gridlines=` and the amount of items (edges) with `items=`. 
+
+To add data to the plot, a new layer should be created, using:
+
+```python
+# Add a new layer to the plot
+plot.addLayer(<dataSeries>, name=<name>, color=<hex-color>)
+```
+
+The plot can be saved using the following code:
 
 ```python
 # Save the plot to a file
-plot.save('filename')
+plot.save('filename', legend=<boolean>)
 ```
 
 ## Getting started
