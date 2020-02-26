@@ -88,8 +88,8 @@
   <text x="32.604722" y="3.409623" font-size="9.464478" font-family="Helvetica" fill="#4c4c4c" opacity="1.000000">8</text>
  </g>
  <g stroke-width="0.850394">
-  <path d="M0 -6.20079L-31.1444 -10.1194L-0.625949 0.861545L2.43178 3.34706L5.28252 -1.7164Z" stroke="#b1dfd5" fill="none"/>
-  <path d="M0 -6.20079L-31.1444 -10.1194L-0.625949 0.861545L2.43178 3.34706L5.28252 -1.7164Z" stroke="none" fill="#b1dfd5" opacity="0.100000"/>
+  <path d="M0 -5.6946L-30.0637 -9.76829L-5.40592 7.44062L5.49112 7.55788L5.28252 -1.7164Z" stroke="#b1dfd5" fill="none"/>
+  <path d="M0 -5.6946L-30.0637 -9.76829L-5.40592 7.44062L5.49112 7.55788L5.28252 -1.7164Z" stroke="none" fill="#b1dfd5" opacity="0.100000"/>
  </g>
  <g stroke-width="1.700787">
   <path d="M-177.165 113.386l28.3465 -0" stroke="#b1dfd5"/>

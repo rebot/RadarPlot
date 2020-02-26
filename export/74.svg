@@ -88,11 +88,11 @@
   <text x="32.604722" y="3.409623" font-size="9.464478" font-family="Helvetica" fill="#4c4c4c" opacity="1.000000">8</text>
  </g>
  <g stroke-width="0.850394">
-  <path d="M0 -6.20079L-31.1444 -10.1194L-0.625949 0.861545L2.43178 3.34706L5.28252 -1.7164Z" stroke="#b1dfd5" fill="none"/>
-  <path d="M0 -6.20079L-31.1444 -10.1194L-0.625949 0.861545L2.43178 3.34706L5.28252 -1.7164Z" stroke="none" fill="#b1dfd5" opacity="0.100000"/>
+  <path d="M0 -1.64511L-26.2321 -8.52331L-2.90213 3.99444L13.414 18.4628L9.28995 -3.01849Z" stroke="#03a698" fill="none"/>
+  <path d="M0 -1.64511L-26.2321 -8.52331L-2.90213 3.99444L13.414 18.4628L9.28995 -3.01849Z" stroke="none" fill="#03a698" opacity="0.100000"/>
  </g>
  <g stroke-width="1.700787">
-  <path d="M-177.165 113.386l28.3465 -0" stroke="#b1dfd5"/>
+  <path d="M-177.165 113.386l28.3465 -0" stroke="#03a698"/>
  </g>
  <g transform="matrix(1.000000,0.000000,0.000000,1.000000,-145.984252,113.385827)">
   <text x="0.000000" y="3.340957" font-size="9.464478" font-family="Helvetica" fill="#4c4c4c" opacity="1.000000">K</text>

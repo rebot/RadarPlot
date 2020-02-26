@@ -176,7 +176,7 @@ class RadarPlot(object):
 
 # In[2]: Laad de data
 
-df = pd.read_excel('20200214kernstudie.xlsx')
+df = pd.read_excel('data/20200226.xlsx')
 
 # In[3]: Normaliseer de data
 
@@ -188,8 +188,8 @@ df[df.columns[1:]] = df[df.columns[1:]] / df[df.columns[1:]].max() * 5
 ids = df.groupby('ID')
 for i, data in ids:
     # TIJDENS DEBUGGEN - VERWIJDER IN PRODUCTIE
-    if i > 0:
-        break
+    #if i > 0:
+    #    break
     # Loop over alle waardes
     plot = RadarPlot(items=5,gridlines=5)
     # De data die je aan de lagen toevoegd is van het type
