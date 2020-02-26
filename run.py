@@ -21,23 +21,15 @@ if not os.path.exists('export/'):
 
 class RadarPlot(object):
 
-    s = 0.5     # Schaal
-    r = 5       # Straal
-    g = None    # Aantal gridlijnen
-    n = None    # Aantal items = f(data)
-    t = None    # Array met de hoeken
-
-    # Definieer de standaard kleuren
-    colors = it.cycle(['#B1DFD5', '#E1D2C6', '#03A698'])
-
     def __init__(self, **kwargs):
         # Vul parameters aan
-        self.s = kwargs.get('schaal', self.s)
-        self.r = kwargs.get('straal', self.r)
-        self.g = kwargs.get('gridlines', None)
-        self.n = kwargs.get('items', None)
+        self.s = kwargs.get('schaal', 0.5)      # Schaal
+        self.r = kwargs.get('straal', 5)        # Straal
+        self.g = kwargs.get('gridlines', None)  # Aantal gridlijnen
+        self.n = kwargs.get('items', None)      # Aantal items = f(data)
         # Als het aantal items gedefinieerd is, maak dan een 
         # lijst met de verschillende hoeken aan
+        self.t = None
         if self.n != None:
             # Start bovenaan, op de hoek pi/2 of 90°
             self.t = np.linspace(0, 2 * np.pi, num=self.n,
@@ -46,6 +38,8 @@ class RadarPlot(object):
         self.layers = []
         # Maak context aan - hierop wordt getekend
         self.c = canvas.canvas()
+        # Definieer de standaard kleuren
+        colors = it.cycle(['#B1DFD5', '#E1D2C6', '#03A698'])
 
     def generateCanvas(self):
         # 1. Maak rechte lijnen
