@@ -2,6 +2,7 @@
 
 import os
 from pyx import *
+from pyx import bbox
 import numpy as np
 import pandas as pd
 import itertools as it
@@ -39,7 +40,7 @@ class RadarPlot(object):
         # Maak context aan - hierop wordt getekend
         self.c = canvas.canvas()
         # Definieer de standaard kleuren
-        colors = it.cycle(['#B1DFD5', '#E1D2C6', '#03A698'])
+        self.colors = it.cycle(['#03A698', '#B1DFD5', '#E1D2C6'])
 
     def generateCanvas(self):
         # 1. Maak rechte lijnen
@@ -84,13 +85,20 @@ class RadarPlot(object):
             elif int(np.cos(a) * 10) > 0:
                 halign = [text.halign.boxleft, text.halign.flushleft]
             # Voeg de tekst toe aan de context
+            extra_r = 1
+            extra_x = 0
+            valign = text.valign.middle 
+            if np.sin(a) < -0.5:
+                extra_r = 0
+                valign = text.valign.bottom
+                extra_x = -0.6 if np.cos(a) < 0 else 0.6
             self.c.text(
-                self.s * (self.r + 1) * np.cos(a),
-                self.s * (self.r + 1) * np.sin(a),
+                self.s * (self.r + extra_r) * np.cos(a) + extra_x,
+                self.s * (self.r + extra_r) * np.sin(a),
                 # Trancodeer de text naar Latex code
                 unicode_to_latex(t), 
                 # Geef mee hoe de tekstbox gedefinieerd is
-                [text.parbox(5), *halign, text.valign.middle, color.gray(0.3)]
+                [text.parbox(5), *halign, valign, color.gray(0.3)]
             )
         
     def generateRadarPlot(self):
@@ -100,7 +108,7 @@ class RadarPlot(object):
         for i in self.layers:
             d = i['data'].values
             c = i['color']
-            r = d * self.s
+            r = d * self.r * self.s
             self.c.stroke(
                 path.path(
                     path.moveto(0, r[0]), 
@@ -165,7 +173,7 @@ class RadarPlot(object):
         if legend == True:
             self.addLegend()
         # Schrijf het weg naar een .svg bestand
-        self.c.writeSVGfile(os.path.join('export', name))
+        self.c.writePDFfile(os.path.join('export', name), page_bbox=bbox.bbox(-(self.r + 4) * self.s, -(self.r) * self.s, (self.r + 4) * self.s, (self.r + 2) * self.s))
 
 
 # In[2]: Laad de data
@@ -174,7 +182,7 @@ df = pd.read_excel('data/20200226.xlsx')
 
 # In[3]: Normaliseer de data
 
-df[df.columns[1:]] = df[df.columns[1:]] / df[df.columns[1:]].max() * 5
+df[df.columns[1:]] = df[df.columns[1:]] / df[df.columns[1:]].max()
 
 # In[4]: Loop over alle indices
 
@@ -191,4 +199,4 @@ for i, data in ids:
     plot.addLayer(data.iloc[0,1:], name='kernstudie')
     # Bewaar de plot met als bestandsnaam het ID-nummer
     # Standaard wordt de legende verborgen
-    plot.save(f'{i}', legend=True)
+    plot.save(f'{i}', legend=False)
